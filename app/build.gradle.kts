@@ -4,12 +4,17 @@ import org.gradle.kotlin.dsl.accessors.runtime.extensionOf
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
-
 }
 
 android {
     namespace = "com.example.calculator"
     compileSdk = 34
+
+    buildFeatures {
+        viewBinding = true
+    }
+
+
 
     defaultConfig {
         applicationId = "com.example.calculator"
@@ -39,6 +44,7 @@ android {
     }
 
 
+
 }
 
 dependencies {
@@ -48,7 +54,9 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    implementation("org.mariuszgromada.math:MathParser.org-mXparser:6.0.0")
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
 }
